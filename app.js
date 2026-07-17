@@ -287,6 +287,31 @@ let quizState = {
   score: 0,
   activeQuestion: null
 };
+async function saveScore(percentage) {
+  const scoreRecord = {
+    employeeName: quizState.employeeName,
+    score: quizState.score,
+    totalQuestions: quizState.totalQuestions,
+    percentage,
+    attemptId: crypto.randomUUID()
+  };
+
+  try {
+    await fetch(SCORE_ENDPOINT, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "text/plain;charset=utf-8"
+      },
+      body: JSON.stringify(scoreRecord)
+    });
+
+    return true;
+  } catch (error) {
+    console.error("Score submission failed:", error);
+    return false;
+  }
+}
 
 function randomItem(array) {
   return array[Math.floor(Math.random() * array.length)];
@@ -451,7 +476,7 @@ function continueQuiz() {
   showNextQuestion();
 }
 
-function showResults() {
+async function showResults() {
   const percentage = Math.round(
     (quizState.score / quizState.totalQuestions) * 100
   );
@@ -465,8 +490,19 @@ function showResults() {
 
   elements.resultMessage.textContent =
     percentage >= 80
-      ? "Passing score."
-      : "Additional training required.";
+      ? "Passing score. Recording result..."
+      : "Additional training required. Recording result...";
+
+  const saved = await saveScore(percentage);
+
+  elements.resultMessage.textContent =
+    percentage >= 80
+      ? saved
+        ? "Passing score. Result submitted."
+        : "Passing score. Result could not be submitted."
+      : saved
+        ? "Additional training required. Result submitted."
+        : "Additional training required. Result could not be submitted.";
 }
 
 function restartQuiz() {
