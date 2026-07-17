@@ -1,5 +1,8 @@
 "use strict";
 
+const SCORE_ENDPOINT =
+  "https://script.google.com/macros/s/AKfycbzwT_2dljhlI99dY7uY6MfSMcSr_7BXKILJwXsc5_uzuwdPcI-47Wfov36flzHgGe3z4g/exec";
+
 const businessLevels = [
   "Empty",
   "Slow",
