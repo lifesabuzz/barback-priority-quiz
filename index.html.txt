@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Barback Priority Quiz</title>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <main class="app">
+    <header>
+      <h1>Barback Priority Quiz</h1>
+      <p>Choose the task that should be completed first.</p>
+    </header>
+
+    <section id="start-screen">
+      <label for="employee-name">Employee name</label>
+      <input
+        id="employee-name"
+        type="text"
+        autocomplete="name"
+        placeholder="Enter name"
+      >
+
+      <label for="question-count">Number of questions</label>
+      <select id="question-count">
+        <option value="5">5 questions</option>
+        <option value="10" selected>10 questions</option>
+        <option value="20">20 questions</option>
+      </select>
+
+      <button id="start-button" type="button">Start Quiz</button>
+    </section>
+
+    <section id="quiz-screen" hidden>
+      <div class="status-row">
+        <span id="progress"></span>
+        <span id="score"></span>
+      </div>
+
+      <div class="scenario">
+        <p class="label">Business level</p>
+        <h2 id="business-level"></h2>
+
+        <p id="condition-text"></p>
+      </div>
+
+      <div id="answer-buttons" class="answers"></div>
+
+      <p id="feedback" aria-live="polite"></p>
+
+      <button id="next-button" type="button" hidden>
+        Next Question
+      </button>
+    </section>
+
+    <section id="results-screen" hidden>
+      <h2>Quiz Complete</h2>
+
+      <p id="final-score"></p>
+      <p id="result-message"></p>
+
+      <button id="restart-button" type="button">
+        Take Again
+      </button>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

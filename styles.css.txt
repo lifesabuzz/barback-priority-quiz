@@ -1,0 +1,102 @@
+:root {
+  font-family: Arial, sans-serif;
+  color: #1d1d1f;
+  background: #f2f3f5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 24px;
+}
+
+.app {
+  width: min(100%, 620px);
+  margin: 0 auto;
+  padding: 28px;
+  background: white;
+  border: 1px solid #d8dadd;
+  border-radius: 12px;
+}
+
+h1,
+h2 {
+  margin-top: 0;
+}
+
+label {
+  display: block;
+  margin-top: 18px;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+input,
+select,
+button {
+  width: 100%;
+  min-height: 46px;
+  padding: 10px 12px;
+  font-size: 16px;
+}
+
+button {
+  margin-top: 16px;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #222;
+  color: white;
+}
+
+button:disabled {
+  cursor: default;
+  opacity: 0.7;
+}
+
+.status-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.scenario {
+  padding: 18px;
+  background: #f5f6f7;
+  border-radius: 8px;
+}
+
+.label {
+  margin-bottom: 5px;
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #666;
+}
+
+.answers {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.answer-button {
+  margin: 0;
+  text-align: left;
+  background: #333;
+}
+
+.answer-button.correct {
+  background: #176c35;
+}
+
+.answer-button.incorrect {
+  background: #9b2424;
+}
+
+#feedback {
+  min-height: 24px;
+  font-weight: 600;
+}
